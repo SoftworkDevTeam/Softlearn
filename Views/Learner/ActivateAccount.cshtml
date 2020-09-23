@@ -1,0 +1,47 @@
+﻿@model SoftLearnFrontEnd.RequestModels.AccountActivationRequestModel
+
+@{ 
+    Layout = "_LearnerLayout";
+}
+
+<div class="form-body">
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="img-holder">
+                <!-- <div class="bg"></div> -->
+                <div class="info-holder">
+                    <h2>Thank you for Registering. Kindly confirm your account with the code sent to your Email.</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 form-holder">
+            <!-- <div class="form-holder"> -->
+            <div class="form-content">
+                <div class="form-items">
+                    <div class="page-links">
+                        <a href="#" class="active">Activate Account</a>
+                    </div>
+                    <form method="post">
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="alert @TempData["alert"] alert-dismissible">
+                                <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>@ViewBag.Message</strong>
+                            </div>
+                        }
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <input asp-for="Email" value="@ViewData["UserEmail"]" type="email" class="form-control" placeholder="Email" />
+
+                        <span asp-validation-for="Code" class="text-danger"></span>
+                        <input asp-for="Code" type="text" class="form-control" placeholder="Code" />
+
+                        <div class="form-button">
+                            <button id="submit" type="submit" class="ibtn">Submit</button> @*<a href="forget15.html">Forgot password?</a>*@
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

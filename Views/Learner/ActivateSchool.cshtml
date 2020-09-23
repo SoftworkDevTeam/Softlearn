@@ -1,0 +1,44 @@
+﻿@model SoftLearnFrontEnd.RequestModels.AccountActivationRequestModel;
+
+@{ 
+    Layout = "_TeacherLayout";
+}
+
+<div class="container">
+    <h1 class="c-h1">Activate School Account</h1>
+    <div class="mt-5">
+        @*<nav class="mb-5">
+                <div class="nav nav-tabs nav-tabs-profile" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link nav-link-profile active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Profile</a>
+                    <a class="nav-item nav-link nav-link-profile" id="nav-profile-picture-tab" data-toggle="tab" href="#nav-profile-picture" role="tab" aria-controls="nav-profile-picture" aria-selected="false">Profile <Picture></Picture></a>
+                    <a class="nav-item nav-link nav-link-profile" id="nav-privacy-settings-tab" data-toggle="tab" href="#nav-privacy-settings" role="tab" aria-controls="nav-privacy-settings" aria-selected="false">Privacy Settings</a>
+                </div>
+            </nav>*@
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-home-tab">
+                <form method="post">
+                    <div class="form-group row">
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="alert @TempData["alert"] alert-dismissible">
+                                <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>@ViewBag.Message</strong>
+                            </div>
+                        }
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <input asp-for="Email" value="@ViewData["UserEmail"]" type="email" class="form-control" placeholder="Email" />
+                        </div>
+                        <div class="col-lg-6">
+                            <span asp-validation-for="Code" class="text-danger"></span>
+                            <input asp-for="Code" type="text" class="form-control" placeholder="Code" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+         </div>
+    </div>
+</div>
+

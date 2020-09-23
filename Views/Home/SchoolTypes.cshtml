@@ -1,0 +1,35 @@
+﻿
+
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+@using SoftLearnFrontEnd.ResponseModels;
+
+@model SchoolTypes
+
+
+<h2>All Reservations</h2>
+<a asp-action="AddReservation" class="btn btn-sm btn-primary">Add Reservation</a>
+<a asp-action="GetReservation" class="btn btn-sm btn-secondary">Get Reservation</a>
+
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model.Data)
+        {
+            <tr>
+                <td>@r.Id</td>
+                <td>@r.SchoolTypeName</td>
+
+            </tr>
+        }
+    </tbody>
+</table>

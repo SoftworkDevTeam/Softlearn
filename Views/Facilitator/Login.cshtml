@@ -1,0 +1,56 @@
+﻿
+
+@model SoftLearnFrontEnd.RequestModels.LoginRequestModel
+
+@{
+    Layout = "_FacilitatorLayout";
+}
+
+<div class="form-body">
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="img-holder">
+                <!-- <div class="bg"></div> -->
+                <div class="info-holder">
+                    <h2>Join over 5 million SoftLearn students' and teachers around the world</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 form-holder">
+            <!-- <div class="form-holder"> -->
+            <div class="form-content">
+                <div class="form-items">
+                    <div class="page-links">
+                        <a href="#" class="active">Login</a>
+                    </div>
+                    <form method="post">
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="alert @TempData["alert"] alert-dismissible">
+                                <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>@ViewBag.Message</strong>
+                            </div>
+                        }
+                        @*<div asp-validation-summary="All" class="text-danger"></div>*@
+
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="Email" />
+
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+
+                        <div class="form-button">
+                            <button id="submit" type="submit" class="ibtn">Login</button> <a href="forget15.html">Forgot password?</a>
+                        </div>
+                    </form>
+                    <div class="other-links">
+                        <span>Don't have an Account yet ?</span><a href="sign-up.html">Sign up</a>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,111 @@
+﻿
+
+
+@model SuperAdminLoginViewModel
+
+
+
+@{
+    ViewData["Title"] = "Login";
+}
+<!-- Header section -->
+<header style="position: relative" class="header-section">
+    <nav class="navbar navbar-expand-sm navbar-light bg-white">
+        <a class="navbar-brand" href="index.html">
+            <div class="logo site-logo">
+                <img class="img-fluid img-responsive" src="../img/logo.png" alt="logo">
+            </div>
+
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="ml-50 nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li>
+            </ul>
+
+            <form class="form-inline mr-auto mt-2 mt-lg-0">
+                <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search"> -->
+                <div class="searchbar">
+                    <input class="search_input" type="text" name="" placeholder="Search...">
+                    <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
+                </div>
+            </form>
+            <ul class="navbar-nav  my-2 my-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">SoftLearn for Schools</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Teach on Softlearn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                </li>
+                <li class="login-btn nav-item active">
+                    <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+                </li>
+                <li>
+                    <a class=" my-2 my-sm-0" asp-controller="superAdmin" asp-action="Register"><button class="btn header-btn-inverse" type="submit">Sign up</button></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- Header section end -->
+<div class="form-body">
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="img-holder">
+                <!-- <div class="bg"></div> -->
+                <div class="info-holder">
+                    <h2>Join over 5 million SoftLearn students' and teachers around the world</h2>
+                    <!-- <p>Access to the most powerfull tool in the entire design and web industry.<br><br>
+                        Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 form-holder">
+            <!-- <div class="form-holder"> -->
+            <div class="form-content">
+                <div class="form-items">
+                    <div class="page-links">
+                        <a href="#" class="active">Login</a>
+                    </div>
+                    <form method="post">
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="alert @TempData["alert"] alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>@ViewBag.Message</strong>
+                            </div>
+                        }
+                        <div asp-validation-summary="All" class="text-danger"></div>
+
+                        <input asp-for="Email" type="text" class="form-control" placeholder="UserName" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                        <div class="form-button">
+                            <button id="submit" type="submit" class="ibtn">Login</button> <a href="forget15.html">Forgot password?</a>
+                        </div>
+                    </form>
+                    <div class="other-links">
+                        <span>Don't have an Account yet ?</span><a href="sign-up.html">Sign up</a>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+

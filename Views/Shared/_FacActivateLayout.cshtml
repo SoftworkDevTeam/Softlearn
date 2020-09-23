@@ -1,0 +1,116 @@
+﻿
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"] - SoftLearn - Online Learning Platform</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="SoftLearn Education Template">
+    <meta name="keywords" content="SoftLearn, education, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="../img/favicon.ico" rel="shortcut icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../dist2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../dist2/icon-fonts/material-design-icons/material-design-icons.css">
+    <link rel="stylesheet" href="../dist2/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist2/css/owl.carousel.css" />
+    <link rel="stylesheet" href="../dist2/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist2/css/star-rating-svg.css">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../dist2/css/iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="../dist2/css/iofrm-theme15.css">
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        /* overflow-x: hidden; */
+        font-family: 'Roboto', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+    }
+</style>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <div class="school-bg">
+        <!-- Header section -->
+        <header style="position: relative" class="header-section">
+            <nav class="navbar navbar-expand-sm navbar-light bg-white-sl">
+                <a class="navbar-brand" asp-controller="home" asp-action="index">
+                    <div class="logo site-logo">
+                        <img class="img-fluid img-responsive" src="../dist2/img/logo.png" alt="logo"> for Schools
+                    </div>
+
+                </a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Plans</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="teachers-page.html">Teach on Softlearn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="material-icons-outlined md-36">
+                                    shopping_cart
+                                </span>
+                            </a>
+                        </li>
+                        <li class="login-btn nav-item">
+                            <a class="nav-link" asp-controller="Facilitator" asp-action="Login">Login</a>
+                        </li>
+                        <li>
+                            <a class=" my-2 my-sm-0" asp-controller="Facilitator" asp-action="Create"><button class="btn header-btn-inverse" type="submit">Sign up</button> <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Header section end -->
+        <!-- <section class="school-bg"> -->
+
+
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+    <!--====== Javascripts & Jquery ======-->
+    <script src="../assets/js/jquery.star-rating-svg.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/star-rating-svg@3.5.0/src/jquery.star-rating-svg.js"></script>  -->
+
+    <script src="../dist2/js/bootstrap.min.js"></script>
+    <script src="../dist2/js/mixitup.min.js"></script>
+    <script src="../dist2/js/circle-progress.min.js"></script>
+    <script src="../dist2/js/owl.carousel.min.js"></script>
+    <script src="../dist2/js/main.js"></script>
+    <script src="../dist2/js/jquery-3.2.1.min.js"></script>
+</body>
+</html>

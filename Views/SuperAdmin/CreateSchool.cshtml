@@ -1,0 +1,137 @@
+﻿@model SoftLearnFrontEnd.RequestModels.SchoolSignUpRequestModel
+@{
+    Layout = "_SchoolLayout";
+}
+
+
+
+<div class="form-body">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="pl-10 img-holder">
+                <!-- <div class="bg"></div> -->
+                <div class="info-holder">
+                    <h2 class="welcome-title">Join over 5 million SoftLearn students' and teachers around the world</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 form-holder">
+            <!-- <div class="form-holder"> -->
+            <div style="background-color: transparent;" class="form-content pr-10">
+                <div class="w500 form-items">
+                    <div class="page-links">
+                        <a href="#" class="active">Sign up</a>
+                    </div>
+                    <form method="post">
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="alert @TempData["alert"] alert-dismissible">
+                                <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>@ViewBag.Message</strong>
+                            </div>
+                        }
+                        @*<div asp-validation-summary="All" class="text-danger"></div>*@
+
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                        <input asp-for="FirstName" type="text" class="form-control" placeholder="First Name" />
+
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                        <input asp-for="LastName" type="text" class="form-control" placeholder="Last Name" />
+
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                        <input asp-for="UserName" type="text" class="form-control" placeholder="Username" />
+
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="Email" />
+
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password" />
+
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="Phone Number" />
+
+                        <span asp-validation-for="SchoolName" class="text-danger"></span>
+                        <input asp-for="SchoolName" type="tel" class="form-control" placeholder="School Name" />
+
+                        <span asp-validation-for="SchoolCode" class="text-danger"></span>
+                        <input asp-for="SchoolCode" type="tel" class="form-control" placeholder="School Code" />
+
+                        <span asp-validation-for="SchoolTypeId" class="text-danger"></span>
+                        <select asp-for="SchoolTypeId" asp-items="@(new SelectList(Model.SchooltypeList,"id", "SchoolTypeName" ))" class="form-control">
+                            <option value="">Please Select</option>
+                        </select>
+
+                        <div class="form-button">
+                            <button id="submit" type="submit" class="ibtn">Register</button> <a href="forget15.html">Forgot password?</a>
+                        </div>
+                    </form>
+                    <div class="other-links">
+                        <span>Already have an Account ?</span><a href="log-in.html">Log in</a>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+
+<!-- </section> -->
+<!-- footer section -->
+<footer style="background-color: transparent;" class="footer-section fpad pb-0">
+    <div class="footer-top">
+        <div class="footer-warp">
+            <div class="row">
+                <div class="widget-item">
+                    <ul>
+                        <li><a href="">SoftLearn for Schools</a></li>
+                        <li><a href="">Teach on SoftLearn</a></li>
+                        <li><a href="">Get the App</a></li>
+                        <li><a href="">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="widget-item">
+                    <ul>
+                        <li><a href="">Careers</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">Help and Support</a></li>
+                        <li><a href="">Affiliate</a></li>
+                    </ul>
+                </div>
+                <div class="widget-item">
+                    <ul>
+                        <li><a href="">Terms</a></li>
+                        <li><a href="">Privacy Policy and Cookie Policy</a></li>
+                        <li><a href="">Site Map</a></li>
+                        <li><a href="">Featured Course</a></li>
+                    </ul>
+                </div>
+                <div class="widget-item">
+                    <h4>Newsletter</h4>
+                    <form class="footer-newslatter">
+                        <input type="email" placeholder="E-mail">
+                        <button class="site-btn">Subscribe</button>
+                        <p>*We don’t spam</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright footer-bottom">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div><img src="../img/logo.png" width="150px" alt=""></div>
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">Softworks Limited</a>
+
+            </div>
+
+        </div>
+    </div>
+
+</footer>
+<!-- footer section end -->
+    </div>
+

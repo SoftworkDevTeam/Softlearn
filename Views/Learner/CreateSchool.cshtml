@@ -1,0 +1,99 @@
+﻿@model SoftLearnFrontEnd.RequestModels.SchoolSignUpRequestModel;
+@{ 
+    Layout = "_TeacherLayout";
+}
+
+<div class="container">
+    <h1 class="c-h1">Create School</h1>
+    <div class="mt-5">
+        @*<nav class="mb-5">
+            <div class="nav nav-tabs nav-tabs-profile" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link nav-link-profile active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Profile</a>
+                <a class="nav-item nav-link nav-link-profile" id="nav-profile-picture-tab" data-toggle="tab" href="#nav-profile-picture" role="tab" aria-controls="nav-profile-picture" aria-selected="false">Profile <Picture></Picture></a>
+                <a class="nav-item nav-link nav-link-profile" id="nav-privacy-settings-tab" data-toggle="tab" href="#nav-privacy-settings" role="tab" aria-controls="nav-privacy-settings" aria-selected="false">Privacy Settings</a>
+            </div>
+        </nav>*@
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-home-tab">
+                <form method="post">
+                    <div class="form-group row">
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="alert @TempData["alert"] alert-dismissible">
+                                <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>@ViewBag.Message</strong>
+                            </div>
+                        }
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                            <input asp-for="FirstName" type="text" class="form-control" placeholder="First Name" />
+                        </div>
+                        <div class="col-lg-6">
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                            <input asp-for="LastName" type="text" class="form-control" placeholder="Last Name" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                            <input asp-for="UserName" type="text" class="form-control" placeholder="Username" />
+                        </div>
+                        <div class="col-lg-6">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="Email" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+                        </div>
+                        <div class="col-lg-6">
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <span asp-validation-for="SchoolName" class="text-danger"></span>
+                            <input asp-for="SchoolName" type="tel" class="form-control" placeholder="School Name" />
+                        </div>
+                        <div class="col-lg-6">
+                            <span asp-validation-for="SchoolCode" class="text-danger"></span>
+                            <input asp-for="SchoolCode" type="tel" class="form-control" placeholder="School Code" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="Phone Number" />
+                        </div>
+                        <div class="col-lg-6">
+                            <span asp-validation-for="SchoolTypeId" class="text-danger"></span>
+                            <select asp-for="SchoolTypeId" asp-items="@(new SelectList(Model.SchooltypeList,"id", "SchoolTypeName" ))" class="form-control">
+                                <option value="">Please Select</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                            <input asp-for="Address" type="text" class="form-control" placeholder="Address" />
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                        <label for="description">Biography</label>
+                        <textarea class="form-control" id="biography"></textarea>
+                    </div>*@
+                    <div class="d-flex">
+                        <button type="submit" class="btn btn-sl-gray ml-auto">Save</button>
+                    </div>
+                </form>
+            </div>
+            @*<div class="tab-pane fade" id="nav-profile-picture" role="tabpanel" aria-labelledby="nav-profile-picture-tab">...</div>
+            <div class="tab-pane fade" id="nav-privacy-settings" role="tabpanel" aria-labelledby="nav-privacy-settings-tab">...</div>*@
+        </div>
+    </div>
+</div>

@@ -1,0 +1,700 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+<!-- Header section -->
+<header class="header-section">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-light">
+        <a class="navbar-brand" href="index.html">
+            <img src="../assets/img/logo.png" width="205px" height="90px" alt="">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                @*<li class="ml-50 nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li>*@
+            </ul>
+
+            <form class="form-inline hidden mr-auto mt-2 mt-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            </form>
+            <ul class="navbar-nav  my-2 my-lg-0">
+                @*<li class="nav-item active">
+                    <a class="nav-link" asp-controller="School" asp-action="Create"> <span class="sr-only">(current)</span>SoftLearn for Schools</a>
+                </li>*@
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="Facilitator" asp-action="Index"> <span class="sr-only">(current)</span>SoftLearn for Facilitators</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="superAdmin" asp-action="Login"> <span class="sr-only">(current)</span>SoftLearn SuperAdmin</a>
+                </li>
+                <li class="nav-item">
+                    @*<a class="nav-link" href="#">Teach on Softlearn</a>*@
+                <li class="ml-50 nav-item active dropdown">
+                    @*<a class="nav-link dropdown-toggle" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SoftLearn for Learners</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" asp-controller="Home" asp-action="LearnerLogin">Login</a>
+                        <a class="dropdown-item" asp-controller="Home" asp-action="LearnerSignUp"> Sign Up</a>
+                    </div>*@
+                </li>
+                @*</li>*@
+                @*<li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        </li>*@
+                <li class="login-btn nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="Login">Login</a>
+                    @*<a class="nav-link" href="log-in.html">Login</a>*@
+                </li>
+                <li>
+                    <a class=" my-2 my-sm-0" href="sign-up.html"><button class="btn header-btn" type="submit">Sign up</button></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- Header section end -->
+<!-- Header section end -->
+<!-- Hero section -->
+<section class="hero-section set-bg" data-setbg="../assets/img/bg.jpg">
+    <!-- <div class="overlay"></div> -->
+    <div class="container">
+        <div class="hero-text text-white">
+            <h2>Learn Anything Anytime Anywhere</h2>
+            <p>World's Best E-Learning Platform.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <form class="form-inline search-course">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <!-- <a href="#" class="search_icon"><i class="fa fa-search"></i></a> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero section end -->
+<!-- categories section -->
+
+<section class="categories-section spad">
+    <!-- <div class="app-main"> -->
+    <!-- <h2>Our Course Categories</h2>	 -->
+    <!-- <div class="row"> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 p-l-0">
+                <div class="app-sidebar">
+                    <div class="scrollbar-sidebar">
+                        <div class="app-sidebar__inner">
+                            <ul class="vertical-nav-menu">
+                                <li class="app-sidebar__heading"></li>
+                                <li>
+                                    <a href="#" class="mm-active">
+                                        <!-- <i class="material-icons md-16 menu-icon">dashboard</i> -->
+                                        Development
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <!-- <i class="material-icons md-16 menu-icon">view_agenda</i> -->
+                                        Design
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <!-- <i class="material-icons md-16 menu-icon">event_note</i> -->
+                                        Management
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <!-- <i class="material-icons md-16 menu-icon">group_work</i> -->
+                                        Photography
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <!-- <i class="material-icons md-18 menu-icon">list</i> -->
+                                        Music
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <!-- <i class="material-icons md-18 menu-icon">list</i> -->
+                                        Business
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <!-- <i class="material-icons md-18 menu-icon">list</i> -->
+                                        IT & Software
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <!-- <i class="material-icons md-18 menu-icon">list</i> -->
+                                        Office Productivity
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <!-- <i class="material-icons md-18 menu-icon">list</i> -->
+                                        Health & Fitness
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
+                <div class="app-main">
+
+                    <h2 class="mb-3">Best <br>Courses</h2>
+
+                    <div class="app-main__inner">
+
+                        <div class="row">
+                            <!-- categorie -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="categorie-item">
+                                    <div class="ci-thumb set-bg" data-setbg="../assets/img/categories/1.jpg"></div>
+                                    <div class="ci-text">
+                                        <h5>IT Development</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                        <span>120 Courses</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- categorie -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="categorie-item">
+                                    <div class="ci-thumb set-bg" data-setbg="../assets/img/categories/2.jpg"></div>
+                                    <div class="ci-text">
+                                        <h5>Web Design</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                        <span>70 Courses</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- categorie -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="categorie-item">
+                                    <div class="ci-thumb set-bg" data-setbg="../assets/img/categories/3.jpg"></div>
+                                    <div class="ci-text">
+                                        <h5>Illustration & Drawing</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                        <span>55 Courses</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- categorie -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="categorie-item">
+                                    <div class="ci-thumb set-bg" data-setbg="../assets/img/categories/4.jpg"></div>
+                                    <div class="ci-text">
+                                        <h5>Social Media</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                        <span>40 Courses</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- categorie -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="categorie-item">
+                                    <div class="ci-thumb set-bg" data-setbg="../assets/img/categories/5.jpg"></div>
+                                    <div class="ci-text">
+                                        <h5>Photoshop</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                        <span>220 Courses</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- categorie -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="categorie-item">
+                                    <div class="ci-thumb set-bg" data-setbg="../assets/img/categories/6.jpg"></div>
+                                    <div class="ci-text">
+                                        <h5>Cryptocurrencies</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                        <span>25 Courses</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- </div> -->
+        <!-- <div class="container"> -->
+
+
+
+</section>
+    </div>
+<!-- categories section end -->
+<!-- download section -->
+<section class="downloadapp-section dpad">
+    <!-- <div class="signup-bg set-bg" data-setbg="img/signup-bg.jpg"></div> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../assets/img/google-play-badge.png" width="250px">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../assets/img/app-store-badge.png" width="250px">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <img src="../assets/img/Group 400.png" width="610px">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="signup-warp">
+                    <div class="section-title text-left">
+                        <h2>Download the SoftLearn App</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+                    </div>
+                    <form class="downloadapp-form">
+                        <input type="text" id="v-upload" placeholder="10 Digit Mobile number">
+                        <button class="site-btn inline">Get Link</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <img src="../assets/img/Group 394.png" width="290px">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- signup section end -->
+<!-- course section -->
+<section class="course-section spad">
+    <div class="container">
+        <div class="section-title mb-0">
+            <h2>Featured Courses</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+        </div>
+    </div>
+    <div class="course-warp">
+        <ul class="course-filter controls">
+            <li class="control active" data-filter="all">All</li>
+            <li class="control" data-filter=".finance">Finance</li>
+            <li class="control" data-filter=".design">Design</li>
+            <li class="control" data-filter=".web">Web Development</li>
+            <li class="control" data-filter=".photo">Photography</li>
+        </ul>
+        <div class="row course-items-area">
+            <!-- course -->
+            <div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+                <div class="course-item">
+                    <div class="course-thumb set-bg" data-setbg="../assets/img/courses/1.jpg">
+                        <div class="price">Price: ₦15,000</div>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-text">
+                            <h5>Art & Crafts</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <div class="students">120 Students</div>
+                            <div class="my-rating"></div>
+                        </div>
+                        <div class="course-author">
+                            ../
+                            <div class="ca-pic set-bg" data-setbg="../assets/img/authors/1.jpg"></div>
+                            <p>William Parker, <span>Developer</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- course -->
+            <div class="mix col-lg-3 col-md-4 col-sm-6 design">
+                <div class="course-item">
+                    <div class="course-thumb set-bg" data-setbg="../assets/img/courses/2.jpg">
+                        <div class="price">Price: ₦15,000</div>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-text">
+                            <h5>IT Development</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <div class="students">120 Students</div>
+                            <div class="my-rating"></div>
+                        </div>
+                        <div class="course-author">
+                            <div class="ca-pic set-bg" data-setbg="../assets/img/authors/2.jpg"></div>
+                            <p>William Parker, <span>Developer</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- course -->
+            <div class="mix col-lg-3 col-md-4 col-sm-6 web">
+                <div class="course-item">
+                    <div class="course-thumb set-bg" data-setbg="../assets/img/courses/3.jpg">
+                        <div class="price">Price: ₦15,000</div>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-text">
+                            <h5>Graphic Design</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <div class="students">120 Students</div>
+                            <div class="my-rating"></div>
+                        </div>
+                        <div class="course-author">
+                            <div class="ca-pic set-bg" data-setbg="../assets/img/authors/3.jpg"></div>
+                            <p>William Parker, <span>Developer</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- course -->
+            <div class="mix col-lg-3 col-md-4 col-sm-6 photo">
+                <div class="course-item">
+                    <div class="course-thumb set-bg" data-setbg="../assets/img/courses/4.jpg">
+                        <div class="price">Price: ₦15,000</div>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-text">
+                            <h5>IT Development</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <div class="students">120 Students</div>
+                            <div class="my-rating"></div>
+                        </div>
+                        <div class="course-author">
+                            <div class="ca-pic set-bg" data-setbg="../assets/img/authors/4.jpg"></div>
+                            <p>William Parker, <span>Developer</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- course -->
+            <div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+                <div class="course-item">
+                    <div class="course-thumb set-bg" data-setbg="../assets/img/courses/5.jpg">
+                        <div class="price">Price: ₦15,000</div>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-text">
+                            <h5>IT Development</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <div class="students">120 Students</div>
+                            <div class="my-rating"></div>
+                        </div>
+                        <div class="course-author">
+                            <div class="ca-pic set-bg" data-setbg="../assets/img/authors/5.jpg"></div>
+                            <p>William Parker, <span>Developer</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- course -->
+            <div class="mix col-lg-3 col-md-4 col-sm-6 design">
+                <div class="course-item">
+                    <div class="course-thumb set-bg" data-setbg="../assets/img/courses/6.jpg">
+                        <div class="price">Price: ₦15,000</div>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-text">
+                            <h5>Socia Media</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <div class="students">120 Students</div>
+                            <div class="my-rating"></div>
+                        </div>
+                        <div class="course-author">
+                            <div class="ca-pic set-bg" data-setbg="../assets/img/authors/6.jpg"></div>
+                            <p>William Parker, <span>Developer</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- course -->
+            <div class="mix col-lg-3 col-md-4 col-sm-6 web">
+                <div class="course-item">
+                    <div class="course-thumb set-bg" data-setbg="../assets/img/courses/7.jpg">
+                        <div class="price">Price: ₦15,000</div>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-text">
+                            <h5>IT Development</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <div class="students">120 Students</div>
+                            <div class="my-rating"></div>
+                        </div>
+                        <div class="course-author">
+                            <div class="ca-pic set-bg" data-setbg="../assets/img/authors/7.jpg"></div>
+                            <p>William Parker, <span>Developer</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- course -->
+            <div class="mix col-lg-3 col-md-4 col-sm-6 photo">
+                <div class="course-item">
+                    <div class="course-thumb set-bg" data-setbg="../assets/img/courses/8.jpg">
+                        <div class="price">Price: ₦15,000</div>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-text">
+                            <h5>HTML 5</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <div class="students">120 Students</div>
+                            <div class="my-rating"></div>
+                        </div>
+                        <div class="course-author">
+                            <div class="ca-pic set-bg" data-setbg="../assets/img/authors/8.jpg"></div>
+                            <p>William Parker, <span>Developer</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- course section end -->
+
+
+<section class="site-section section-title bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center">
+                <h2>Top Courses</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum magnam illum maiores adipisci pariatur, eveniet.</p>
+            </div>
+        </div>
+        <div class="row top-course">
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                <a href="#" class="course">
+                    <img src="../assets/img/courses/webdesign.jpg" alt="Image placeholder">
+                    <h5>Web Design 101</h5>
+                    <p>Enroll Now</p>
+                </a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                <a href="#" class="course">
+                    <img src="../assets/img/courses/wordpress.jpg" alt="Image placeholder">
+                    <h5>Learn How To Develop WordPress Plugin</h5>
+                    <p>Enroll Now</p>
+                </a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                <a href="#" class="course">
+                    <img src="../assets/img/courses/javascript.jpg" alt="Image placeholder">
+                    <h5>JavaScript 101</h5>
+                    <p>Enroll Now</p>
+                </a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                <a href="#" class="course">
+                    <img src="../assets/img/courses/photoshop.jpg" alt="Image placeholder">
+                    <h5>Photoshop Design 101</h5>
+                    <p>Enroll Now</p>
+                </a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                <a href="#" class="course">
+                    <img src="../assets/img/courses/reactjs.jpg" alt="Image placeholder">
+                    <h5>Learn Native ReactJS</h5>
+                    <p>Enroll Now</p>
+                </a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                <a href="#" class="course">
+                    <img src="../assets/img/courses/angularjs.jpg" alt="Image placeholder">
+                    <h5>Learn AngularJS 2</h5>
+                    <p>Enroll Now</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END section -->
+<!--Testimonials-->
+<section class="testimonie-section spad">
+    <div class="container">
+        <div id="title" class="row justify-content-center mb-5">
+            <div class="col-7 col-lg-7 col-md-7 text-center">
+                <h2 class="mb-5">What Our Students Say</h2>
+                <i class="fa fa-quote-left fa-6x" aria-hidden="true"></i>
+            </div>
+            <!-- End of Col-md-7 -->
+
+        </div>
+        <div class="row top-course">
+            <div class="col-12 col-lg-12 col-md-12">
+
+                <div id="carouselExample" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExample" data-slide-to="0" class="">
+                            <div class="testimonie-item">
+                                <div class="ci-thumb set-bg" data-setbg="../assets/img/authors/9.png"></div>
+                                <div class="ci-text">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut nisi varius, varius tellus in, suscipit turpis. Donec erat mi, tempus ac tincidunt a, dictum et tellus. Donec ante turpis, sodales et mattis sed, venenatis at lectus. Nulla nisi sem, eleifend sed erat non, rutrum sodales elit.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-target="#carouselExample" data-slide-to="1" class="">
+                            <div class="testimonie-item">
+                                <div class="ci-thumb set-bg" data-setbg="../assets/img/authors/8.jpg"></div>
+                                <div class="ci-text">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut nisi varius, varius tellus in, suscipit turpis. Donec erat mi, tempus ac tincidunt a, dictum et tellus. Donec ante turpis, sodales et mattis sed, venenatis at lectus. Nulla nisi sem, eleifend sed erat non, rutrum sodales elit.</p>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li data-target="#carouselExample" data-slide-to="2" class="active">
+                            <div class="testimonie-item">
+                                <div class="ci-thumb set-bg" data-setbg="../assets/img/authors/7.jpg"></div>
+                                <div class="ci-text">
+                                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut nisi varius, varius tellus in, suscipit turpis. Donec erat mi, tempus ac tincidunt a, dictum et tellus. Donec ante turpis, sodales et mattis sed, venenatis at lectus. Nulla nisi sem, eleifend sed erat non, rutrum sodales elit.</p>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item">
+
+                        </div>
+                        <!-- End of Carousel Item 1 -->
+
+                        <div class="carousel-item">
+
+
+                        </div>
+                        <!-- End of Carousel Item 2 -->
+
+                        <div class="carousel-item active">
+
+                        </div>
+                        <!-- End of Carousel Item 3 -->
+
+                    </div>
+                    <!-- End of Carousel Inner -->
+
+                    <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+
+                        <i class="fas fa-caret-square-left fa-2x"></i>
+
+                    </a>
+                    <!-- End of Carousel Control Prev -->
+
+                    <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+
+                        <i class="fa fa-caret-square-right fa-2x"></i>
+                    </a>
+                    <!-- End of Carousel Control Next -->
+
+                </div>
+                <!-- End of CarouselExample -->
+
+            </div>
+        </div>
+        <!-- End of Col-md-12 -->
+        <!-- End of Row -->
+
+    </div>
+</section>
+<!-- END Testimonials-->
+<!-- signup section -->
+<section class="signup-section spad">
+    <div class="signup-bg set-bg" data-setbg="../assets/img/signup-bg.jpg"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="signup-warp">
+                    <div class="section-title text-white text-left">
+                        <h2>Sign up to become a teacher</h2>
+                        <p>Create an online course and teach what you love.</p>
+                    </div>
+                    <!-- signup form -->
+                    <form class="signup-form">
+                        <input type="text" placeholder="Your Name">
+                        <input type="text" placeholder="Your E-mail">
+                        <input type="text" placeholder="Your Phone">
+                        <label for="v-upload" class="file-up-btn">Continue</label>
+                        <input type="file" id="v-upload">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- signup section end -->
+<!-- banner section -->
+<section class="banner-section spad">
+    <div class="container">
+        <div class="section-title mb-0 pb-2">
+            <h2>Join Our Community Now!</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+        </div>
+        <div class="text-center pt-5">
+            <a href="#" class="site-btn">Register Now</a>
+        </div>
+    </div>
+</section>
+<!-- banner section end -->
+<!-- footer section -->
+<footer class="footer-section spad pb-0">
+    <div class="footer-top">
+        <div class="footer-warp">
+            <div class="row">
+                <div class="widget-item">
+                    <ul>
+                        <li><a href="">SoftLearn for Schools</a></li>
+                        <li><a href="">Teach on SoftLearn</a></li>
+                        <li><a href="">Get the App</a></li>
+                        <li><a href="">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="widget-item">
+                    <ul>
+                        <li><a href="">Careers</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">Help and Support</a></li>
+                        <li><a href="">Affiliate</a></li>
+                    </ul>
+                </div>
+                <div class="widget-item">
+                    <ul>
+                        <li><a href="">Terms</a></li>
+                        <li><a href="">Privacy Policy and Cookie Policy</a></li>
+                        <li><a href="">Site Map</a></li>
+                        <li><a href="">Featured Course</a></li>
+                    </ul>
+                </div>
+                <div class="widget-item">
+                    <h4>Newsletter</h4>
+                    <form class="footer-newslatter">
+                        <input type="email" placeholder="E-mail">
+                        <button class="site-btn">Subscribe</button>
+                        <p>*We don’t spam</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright footer-bottom">
+        <div><img src="../assets/img/logo.png" width="150px" alt=""></div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy;
+        <script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">Softworks Limited</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    </div>
+
+</footer>
+<!-- footer section end -->
