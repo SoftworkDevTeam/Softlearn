@@ -1,6 +1,6 @@
 ﻿@model SoftLearnFrontEnd.RequestModels.SchoolSignUpRequestModel;
 @{ 
-    Layout = "_TeacherLayout";
+    Layout = "_SchoolLayout";
 }
 
 <div class="container">
@@ -72,9 +72,9 @@
                         </div>
                         <div class="col-lg-6">
                             <span asp-validation-for="SchoolTypeId" class="text-danger"></span>
-                            <select asp-for="SchoolTypeId" asp-items="@(new SelectList(Model.SchooltypeList,"id", "SchoolTypeName" ))" class="form-control">
+                            @*<select asp-for="SchoolTypeId" asp-items="@(new SelectList(Model.SchooltypeList,"id", "SchoolTypeName" ))" class="form-control">
                                 <option value="">Please Select</option>
-                            </select>
+                            </select>*@
                         </div>
                     </div>
                     <div class="form-group row">

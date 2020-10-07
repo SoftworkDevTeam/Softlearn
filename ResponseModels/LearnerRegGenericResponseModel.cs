@@ -1,4 +1,5 @@
-﻿using SoftLearnFrontEnd.ResponseModels;
+﻿using NewSoftlearn.ResponseModels;
+using SoftLearnFrontEnd.ResponseModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,5 +45,12 @@ namespace SoftLearn.ResponseModels
         public string StatusMessage { get; set; }
         public string Token { get; set; }
         public TeacherCreateResponseModel Data { get; set; }
+    }
+    public class CoursesGenericResponseModel
+    {
+        public long StatusCode { get; set; }
+        public string StatusMessage { get; set; }
+        public string Token { get; set; }
+        public CoursesCreateResponseModel Data { get; set; }
     }
 }

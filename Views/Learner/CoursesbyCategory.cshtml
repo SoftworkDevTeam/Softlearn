@@ -1,0 +1,126 @@
+﻿@{
+    Layout = "_NewLearnerLayout";
+}
+
+<!-- course section -->
+<section class="course-section spad">
+    <div class="container">
+        <div class="section-title mb-0">
+            <h2>@ViewBag.CourseCategory.courseCategoryName Courses</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+        </div>
+    </div>
+    <div class="course-warp">
+        @*<ul class="course-filter controls">
+                <li class="control active" data-filter="all">All</li>
+
+                <li class="control" data-filter=".finance">Finance</li>
+                <li class="control" data-filter=".design">Design</li>
+                <li class="control" data-filter=".web">Web Development</li>
+                <li class="control" data-filter=".photo">Photography</li>
+            </ul>*@
+        <br /><br />
+        <div class="row course-items-area">
+            <!-- course -->
+            @if (ViewBag.CoursesList != null)
+            {
+                foreach (var courses in ViewBag.CoursesList)
+                {
+                    <div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+                        <div class="course-item">
+                            @if (courses.courseImageUrl != "")
+                            {
+                                <div class="course-thumb set-bg" data-setbg="@courses.courseImageUrl">
+                                    <div class="price">Price: ₦@courses.courseAmount</div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="course-thumb set-bg" data-setbg="../assets/img/courses/5.jpg">
+                                    <div class="price">Price: ₦@courses.courseAmount</div>
+                                </div>
+                            }
+                            <div class="course-info">
+                                <div class="course-text">
+                                    <h5>@courses.courseName</h5>
+                                    <a class="students" asp-controller="Home" asp-action="CoursePreview" asp-route-courseid="@courses.id">Course Preview</a>
+                                    <div class="my-rating"></div>
+                                </div>
+                                <div class="course-author">
+                                    @*<div class="ca-pic set-bg" data-setbg="../img/authors/5.jpg"></div>*@
+                                    <p>William Parker, <span>Developer</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="container">
+                    <div class="section-title mb-0">
+                        <h3>No More Available Courses for this Category!</h3>
+                    </div>
+                </div>
+            }
+            <!-- course -->
+        </div>
+        <br /><br />
+
+        @{
+            long previous = 0;
+            long next = 0;
+
+        }
+        @if (ViewBag.pageNumber != null)
+        {
+            previous = ViewBag.pageNumber - 1;
+            <a class="site-btn inline" asp-route-categoryId="@ViewBag.courseCategoryId" asp-route-pageNumber="@previous" asp-route-pageSize="4" asp-controller="home" asp-action="CoursesByCategory" style="margin-left:600px;"> Previous</a>
+        }
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        @if (ViewBag.pageNumber != null)
+        {
+            if (ViewBag.CoursesList != null)
+            {
+                next = ViewBag.pageNumber + 1;
+                <a class="site-btn inline" asp-route-categoryId="@ViewBag.courseCategoryId" asp-route-pageNumber="@next" asp-route-pageSize="4" asp-controller="home" asp-action="CoursesByCategory">Next >></a>
+            }
+
+        }
+    </div>
+</section>
+
+@*<div class="container">
+
+        <div class="d-flex">
+            <h2>@ViewBag.CourseCategory.courseCategoryName Courses</h2>
+        </div>
+        <div class="row mt-5">
+            @if (ViewBag.CoursesList != null)
+            {
+                @foreach (var courses in ViewBag.CoursesList)
+                {
+                    if (@courses.courseImageUrl == "")
+                    {
+                        courses.courseImageUrl = "../assets/img/courses/angularjs.jpg";
+                    }
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <figure>
+                                <img class="card-img-top" src="@courses.courseImageUrl" alt="Angular">
+
+                            </figure>
+                            <div class="card-body card-body-courses">
+                                <div class="d-block">
+                                    <p>"@courses.courseName"</p>
+                                    <a asp-action="" asp-controller="">Course Preview</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            }
+            </div>
+    </div>*@

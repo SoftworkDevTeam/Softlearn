@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using RestSharp;
 using SoftLearnFrontEnd.Helpers;
 using SoftLearnFrontEnd.RequestModels;
 
@@ -74,7 +75,7 @@ namespace SoftLearnFrontEnd.Helpers
         {
             using (var httpClient = new HttpClient())
             {
-               // StringContent content = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
+                // StringContent content = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
 
                 var url = BaseUrl.baseUrl() + endPoint;
                 httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + CancellationToken);
@@ -88,5 +89,59 @@ namespace SoftLearnFrontEnd.Helpers
 
             }
         }
+            //------------------------------------------USE THIS METHOD FOR GET REQUESTS ----------------------
+
+            public async Task<string> GetRestResponse(string endPoint, string jwtToken)
+            {
+                var url = BaseUrl.baseUrl() + endPoint;
+
+                var client = new RestClient(url);
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("Authorization", "Bearer " + jwtToken);
+
+                IRestResponse response = await client.ExecuteAsync(request);
+                var stringContentResponse = response.Content;
+
+                return stringContentResponse;
+            }
+
+        //----------------------------------USE THIS METHOD FOR POST REQUESTS FOR MULTIPARTFORMDATA------------------------------
+
+        public async Task<string> PostRestResponseFormData(string endPoint, RestRequest request, string jwtToken)
+            {
+                var url = BaseUrl.baseUrl() + endPoint;
+
+                var client = new RestClient(url);
+                request.Method = Method.POST;
+                request.AddHeader("Authorization", "Bearer " + jwtToken);
+                request.AlwaysMultipartFormData = true;
+                IRestResponse response = await client.ExecuteAsync(request);
+                var stringContentResponse = response.Content;
+
+                return stringContentResponse;
+
+            }
+
+            //----------------------------------USE THIS METHOD FOR POST REQUESTS JSON------------------------------
+
+            public async Task<string> PostRestResponseJson(string endPoint, object obj, string jwtToken)
+            {
+                var url = BaseUrl.baseUrl() + endPoint;
+
+                var client = new RestClient(url);
+                var request = new RestRequest();
+                request.Method = Method.POST;
+
+                request.AddHeader("Authorization", "Bearer " + jwtToken);
+                request.RequestFormat = DataFormat.Json;
+                request.AddJsonBody(obj);
+
+                IRestResponse response = await client.ExecuteAsync(request);
+                var stringContentResponse = response.Content;
+
+                return stringContentResponse;
+
+            }
+        
     }
 }

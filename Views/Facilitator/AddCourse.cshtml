@@ -4,12 +4,19 @@
     Layout = "_DashboardLayout";
 }
 <div class="container">
-    <h1 class="c-h1">Add new Course</h1>
+    <h1 class="c-h1" >New Course</h1>
     <div class="row mt-4">
         <div class="col-md-8 col-lg-8 mb-3">
             <h2 class="c-h3">Basic Information</h2>
 
-            <form class="mt-2 mb-5">
+            <form method="post" enctype="multipart/form-data" class="mt-2 mb-5">
+                @if (ViewBag.Message != null)
+                {
+                    <div class="alert @TempData["alert"] alert-dismissible">
+                        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>@ViewBag.Message</strong>
+                    </div>
+                }
                 <div class="form-group">
                     <label for="firstName">Course Title</label>
                     <span asp-validation-for="CourseName" class="text-danger"></span>
@@ -20,97 +27,115 @@
                     <span asp-validation-for="CourseDescription" class="text-danger"></span>
                     <textarea asp-for="CourseDescription" class="form-control" id="description"></textarea>
                 </div>
-
+                <div class="form-group">
+                    <label for="description">About Course</label>
+                    <span asp-validation-for="AboutCourse" class="text-danger"></span>
+                    <textarea asp-for="AboutCourse" class="form-control" id="description"></textarea>
+                </div>
                 <div class="form-group row">
                     <div class="col-lg-6">
                         <span asp-validation-for="CourseTypeId" class="text-danger"></span>
-                        <select asp-for="CourseTypeId" asp-items="@(new SelectList(Model.CourseTypes,"id", "courseTypeName" ))" class="form-control">
-                            <option value="">Please Select Course Type</option>
+                        <select asp-for="CourseTypeId" asp-items="@(new SelectList(ViewBag.CourseTypeList,"id", "courseTypeName" ))" class="form-control">
                         </select>
                     </div>
                     <div class="col-lg-6">
                         <span asp-validation-for="LevelTypeId" class="text-danger"></span>
-                        <select asp-for="LevelTypeId" asp-items="@(new SelectList(Model.CourseLevel,"id", "levelTypeName" ))" class="form-control">
-                            <option value="">Please Select Level Type</option>
+                        <select asp-for="LevelTypeId" asp-items="@(new SelectList(ViewBag.CourseLevelList,"id", "levelTypeName" ))" class="form-control">
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-6">
-                        @*<span asp-validation-for="CourseTypeId" class="text-danger"></span>
-                        <select asp-for="CourseTypeId" asp-items="@(new SelectList(Model.CourseCategory,"id", "courseCategoryName" ))" class="form-control">
-                            <option value="">Please Select Category</option>
-                        </select>*@
+                        <span asp-validation-for="CourseCategoryId" class="text-danger"></span>
+                        <select asp-for="CourseCategoryId" asp-items="@(new SelectList(ViewBag.CourseCategoryList,"id", "courseCategoryName" ))" class="form-control">
+                        </select>
                     </div>
-                    @*<div class="col-lg-6">
-                        <span asp-validation-for="CourseImage" class="text-danger"></span>
-                        <input asp-for="CourseImage" type="file" placeholder="Upload an Image" />
-                    </div>*@
+                    <div class="col-lg-6">
+                        <input asp type="file" name="imageFile" class="form-control" />
+                        @*<span asp-validation-for="CourseImageUrl" class="text-danger"></span>*@
+                    </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-6">
-                        <span asp-validation-for="DateStart" class="text-danger"></span>
-                        <input asp-for="DateStart" type="date" class="form-control" />
-                    </div>
-                    <div class="col-lg-6">
-                        <span asp-validation-for="DateEnd" class="text-danger"></span>
-                        <input asp-for="DateEnd" type="date" class="form-control" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    @*<div class="col-lg-6">
                         <label for="price">Price</label>
-                        <span asp-validation-for="CourseAmount" class="text-danger"></span>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">₦</span>
                             </div>
+                            <span asp-validation-for="CourseAmount" class="text-danger"></span>
                             <input asp-for="CourseAmount" type="text" class="form-control" aria-label="Amount (to the nearest naira)">
                         </div>
-                    </div>*@
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <span asp-validation-for="DateStart" class="text-danger"></span>
+                            <input asp-for="DateStart" type="date" class="form-control" />
+                        </div>
+                        <div class="col-lg-6">
+                            <span asp-validation-for="DateEnd" class="text-danger"></span>
+                            <input asp-for="DateEnd" type="date" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @*<div class="col-lg-6">
+                <label for="price">Price</label>
+                <span asp-validation-for="CourseAmount" class="text-danger"></span>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">₦</span>
+                    </div>
+                    <input asp-for="CourseAmount" type="text" class="form-control" aria-label="Amount (to the nearest naira)">
                 </div>
-                <button class="btn btn-dark">Create Course</button>
-            </form>
+            </div>*@
+                    </div>
+                    <button class="btn btn-dark">Create Course</button>
+                    @*@if (ViewBag.obj != null)
+        {
+        @ViewBag.obj;
+        }*@
+</form>
 
         </div>
         <div class="col-md-4 col-lg-3 offset-lg-1">
 
-            <h2 class="c-h3">Options</h2>
+            <h2 class="c-h3">Video</h2>
             <div class="card mt-2 mb-5">
+                <!--Card image-->
+                <video class="img-fluid" playsinline autoplay muted loop>
+                    <source src="https://mdbootstrap.com/img/video/animation-intro.mp4" type="video/mp4">
+                </video>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="category">Category</label>
-                        <span asp-validation-for="CourseTypeId" class="text-danger"></span>
-                        <select asp-for="CourseTypeId" asp-items="@(new SelectList(Model.CourseCategory,"id", "courseCategoryName" ))" class="form-control">
-                            <option value="">Please Select Category</option>
-                        </select>
-                        <small id="categoryHelp" class="form-text text-muted">Select a category.</small>
+                        <label for="url">Url</label>
+                        <input type="text" class="form-control" id="url" aria-labelledby="urlHelp">
+                        <small id="urlHelp" class="form-text text-muted">Enter a valid video url.</small>
                     </div>
                     <div class="form-group">
-                        <label for="price">Price</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">₦</span>
-                            </div>
-                            <input asp-for="CourseAmount" type="text" class="form-control" aria-label="Amount (to the nearest naira)">
-                        </div>
+                        @*<label for="price">Price</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">₦</span>
                     </div>
-                    <div class="form-group">
-                        <label for="tags">Course Image</label>
-                        <span asp-validation-for="CourseImage" class="text-danger"></span>
-                        <input asp-for="CourseImage" type="file" placeholder="Upload an Image" />
-                        <small id="tagsHelp" class="form-text text-muted">Upload a course Image.</small>
+                     <span asp-validation-for="CourseAmount" class="text-danger"></span>
+                    <input asp-for="CourseAmount" type="text" class="form-control" aria-label="Amount (to the nearest naira)">*@
                     </div>
-
-                    @*<div class="tags">
-                        <span class="badge badge-light">User Interface &nbsp; x</span>
-                        <span class="badge badge-light">Graphics Design &nbsp; x</span>
-                    </div>*@
                 </div>
+                <div class="form-group">
+                    @*<label for="tags">Course Image</label>
+            <span asp-validation-for="CourseImage" class="text-danger"></span>
+            <input asp-for="CourseImage" type="file" placeholder="Upload an Image" />
+            <small id="tagsHelp" class="form-text text-muted">Upload a course Image.</small>*@
+                </div>
+
+                @*<div class="tags">
+            <span class="badge badge-light">User Interface &nbsp; x</span>
+            <span class="badge badge-light">Graphics Design &nbsp; x</span>
+        </div>*@
+            </div>
             </div>
         </div>
-    </div>
-</div>
+ </div>
 <!--<div class="edit-section spad">
     <h1 class="c-h1">Create New Course</h1>
     <div class="mt-5">
@@ -209,10 +234,7 @@
                         </div>
                     </form>
 
-                    if (ViewBag.obj != null)
-                    {
-                        @ViewBag.obj;
-                    }
+                
                 </div>
             </div>
         </div>

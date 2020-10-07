@@ -2,7 +2,7 @@
 @model SoftLearnFrontEnd.RequestModels.FacilitatorRegRequestModel
 
 @{
-    Layout = "_FacilitatorLayout";
+    Layout = "_SchoolLayout";
 }
 
 <div class="form-body">
@@ -11,9 +11,9 @@
         <div class="col-md-8">
             <div class="img-holder">
                 <!-- <div class="bg"></div> -->
-                <div class="info-holder">
+                @*<div class="info-holder">
                     <h2>Join over 5 million SoftLearn students' and teachers around the world</h2>
-                </div>
+                </div>*@
             </div>
         </div>
         <div class="col-md-4 form-holder">
@@ -39,8 +39,8 @@
                         <span asp-validation-for="LastName" class="text-danger"></span>
                         <input asp-for="LastName" type="text" class="form-control" placeholder="Last Name" />
 
-                        <span asp-validation-for="UserName" class="text-danger"></span>
-                        <input asp-for="UserName" type="text" class="form-control" placeholder="Username" />
+                        @*<span asp-validation-for="UserName" class="text-danger"></span>
+                        <input asp-for="UserName" type="text" class="form-control" placeholder="Username" />*@
 
                         <span asp-validation-for="Email" class="text-danger"></span>
                         <input asp-for="Email" type="email" class="form-control" placeholder="Email" />

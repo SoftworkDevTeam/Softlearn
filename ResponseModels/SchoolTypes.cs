@@ -34,14 +34,22 @@ namespace SoftLearnFrontEnd.ResponseModels
     }
     public class CourseTypes
     {
+        public string StatusCode { get; set; }
+        public string StatusMessage { get; set; }
+        public IEnumerable<CourseData> CourseData { get; set; }
+  
+    }
+
+    public class CourseData
+    {
         public long id { get; set; }
         public string courseTypeName { get; set; }
     }
-    public class CourseCategory
-    {
-        public long id { get; set; }
-        public string courseCategoryName { get; set; }
-    }
+    //public class CourseCategory
+    //{
+    //    public long id { get; set; }
+    //    public string courseCategoryName { get; set; }
+    //}
     public class CourseLevel
     {
         public long id { get; set; }

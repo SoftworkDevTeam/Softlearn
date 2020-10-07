@@ -51,9 +51,9 @@
  @*Header section*@ 
 <header style="position: relative" class="header-section">
     <nav class="navbar navbar-expand-sm navbar-light bg-white-sl">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" asp-controller="Home" asp-action="Index">
             <div class="logo site-logo">
-                <img class="img-fluid img-responsive" src="../dist/img/logo.png" alt="logo"> for Schools
+                <img class="img-fluid img-responsive" src="../dist/img/logo.png" alt="logo"> 
             </div>
 
         </a>
@@ -64,7 +64,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
 
             <ul class="navbar-nav ml-auto mt-2">
-                <li class="nav-item">
+                @*<li class="nav-item">
                     <a class="nav-link" href="#">Plans</a>
                 </li>
                 <li class="nav-item">
@@ -76,9 +76,9 @@
                             shopping_cart
                         </span>
                     </a>
-                </li>
+                </li>*@
                 <li class="login-btn nav-item">
-                    <a class="nav-link" href="log-in.html">Login</a>
+                    <a class="nav-link" href="#">Login</a>
                 </li>
                 <li>
                     <a class=" my-2 my-sm-0" href="#"><button class="btn header-btn-inverse" type="submit">Sign up</button> <span class="sr-only">(current)</span></a>

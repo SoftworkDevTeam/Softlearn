@@ -1,0 +1,81 @@
+﻿@model SoftLearnFrontEnd.RequestModels.CourseTopicsRequestModel
+
+@using NewSoftlearn.Entities
+
+
+@{
+    Layout = "_DashboardLayout";
+}
+
+<div class="container">
+    <h1 class="c-h1">Add Course Topic</h1>
+    <div class="row mt-4">
+        <div class="col-md-8 col-lg-8 mb-3">
+            <form method="post" enctype="multipart/form-data">
+                @if (ViewBag.Message != null)
+                {
+                    <div class="alert @TempData["alert"] alert-dismissible">
+                        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>@ViewBag.Message</strong>
+                    </div>
+                }
+                <div class="form-group">
+                    <div class="col-lg-6">
+                        <label for="firstName">Topic</label>
+                        <span asp-validation-for="Topic" class="text-danger"></span>
+                        <input asp-for="Topic" type="text" class="form-control" placeholder="" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input asp-for="CourseId" value="@ViewData["courseid"]" type="hidden" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-6">
+                        <label for="description">Duration</label>
+                        <span asp-validation-for="Duration" class="text-danger"></span>
+                        <input asp-for="Duration" class="form-control" id="description" />
+                    </div>
+                </div>
+                <button class="btn btn-dark">Add Course Topic</button>
+            </form>
+        </div>
+    </div>
+    <h2>Course Topics</h2>
+
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Course Topic</th>
+                <th>Date Created</th>
+                <th class="text-right">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewBag.CourseTopicList != null)
+            {
+                @foreach (var courses in ViewBag.CourseTopicList)
+                {
+                    <tr>
+                        <td>@courses.courseName</td>
+                        <td>@courses.topic</td>
+                        <td>@courses.dateCreated</td>
+                        <td class="text-right">
+                            <a asp-controller="Facilitator" asp-action="AddTopicMaterial" asp-route-courseTopicid="@courses.id" asp-route-courseid="@courses.courseId" class="btn btn-primary badge-pill">Add topic Material</a>
+                            <a asp-controller="Facilitator" asp-action="AddVideoContent" asp-route-courseTopicid="@courses.id" asp-route-courseid="@courses.courseId" class="btn btn-primary badge-pill">Add Video Content</a>
+                            <button class="btn btn-danger badge-pill">Delete</button>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <h2>No record found</h2>
+            }
+            @*<tr>
+            <td>@ViewBag.CourseList.id</td>
+            <td>@ViewBag.CourseList.courseName</td>
+        </tr>*@
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,125 @@
+﻿@using SoftLearnFrontEnd.Helpers
+@using Newtonsoft.Json
+@using NewSoftlearn.Entities
+
+
+@{
+    HttpClientConfig httpClientConfig = new HttpClientConfig();
+}
+
+
+@{
+    Layout = "_NewLearnerLayout";
+}
+
+<section class="categories-section spad">
+    <!-- <div class="app-main"> -->
+    <!-- <h2>Our Course Categories</h2>	 -->
+    <!-- <div class="row"> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 p-l-0">
+                <div class="app-sidebar">
+                    <div class="scrollbar-sidebar">
+                        <div class="app-sidebar__inner">
+                            <ul class="vertical-nav-menu">
+                                <li class="app-sidebar__heading"></li>
+                                <li>
+                                    <a href="#" class="mm-active">
+                                        <!-- <i class="material-icons md-16 menu-icon">dashboard</i> -->
+                                        Categories
+                                    </a>
+                                </li>
+                                @if (ViewBag.CourseCategoryList != null)
+                                {
+                                    foreach (var r in ViewBag.CourseCategoryList)
+                                    {
+                                        <li>
+                                            <a href="/Learner/CoursesByCategory?categoryId= @r.id">
+                                                <!-- <i class="material-icons md-16 menu-icon"></i> -->
+                                                @r.courseCategoryName
+                                            </a>
+                                        </li>
+                                    }
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
+                <div class="app-main">
+
+                    <h2 class="mb-3">Course<br>Categories</h2>
+
+                    <div class="app-main__inner">
+
+                        <div class="row">
+                            <!-- categorie -->
+                            <!--if (ViewBag.CourseCategoryList != null)
+                            {
+                                foreach (var r in ViewBag.CourseCategoryList)
+                                {
+                                    //Api call for course category by Id
+                                    var apiResponse = await httpClientConfig.GetRestResponse("Course/coursesByCategoryId?categoryId=" + r.id + "", "");
+                                    var result = JsonConvert.DeserializeObject<CourseDataResponse>(apiResponse);
+
+                                    long countCourses = 0;
+
+                                    if (result.Data != null)
+                                    {
+                                        foreach (var rr in result.Data)
+                                        {
+                                            countCourses = countCourses + 1;
+                                        }
+                                    }
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="categorie-item">
+                                            if (r.categoryImageUrl != null)
+                                            {
+                                                <div class="ci-thumb set-bg" data-setbg="r.categoryImageUrl"></div>
+                                            }
+                                            else
+                                            {
+                                                <div class="ci-thumb set-bg" data-setbg="../assets/img/categories/1.jpg"></div>
+                                            }
+                                            <div class="ci-text">
+                                                <a asp-route-categoryId="r.id" asp-controller="home" asp-action="CoursesByCategory"><h5>r.courseCategoryName</h5></a>-->
+                                                @*<p>Lorem ipsum dolor sit amet, consectetur</p>*@
+                                                @*<span>@countCourses Courses</span>*@
+                                            @*</div>
+                                        </div>
+                                    </div>
+                                }
+                            }*@
+
+                            @*{
+                                long previous = 0;
+                                long next = 0;
+
+                            }
+                            if (ViewBag.pageNumber != null)
+                            {
+                                previous = ViewBag.pageNumber - 1;
+                                <a class="site-btn inline" asp-route-pageNumber="@previous" asp-route-pageSize="6" asp-controller="home" asp-action="Index" style="margin-left:350px;"> Previous</a>
+                            }
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            if (ViewBag.pageNumber != null)
+                            {
+                                next = ViewBag.pageNumber + 1;
+                                <a class="site-btn inline" asp-route-pageNumber="@next" asp-route-pageSize="6" asp-controller="home" asp-action="Index">Next >></a>
+                            }*@
+                        @*</div>
+                    </div>
+                </div>
+            </div>-->*@
+        </div>
+
+
+        <!-- </div> -->
+        <!-- <div class="container"> -->
+
+
+</section>

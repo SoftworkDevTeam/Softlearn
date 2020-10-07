@@ -16,20 +16,13 @@ namespace SoftLearn.Models
         public string CourseName { get; set; }
         [Required]
         public string CourseDescription { get; set; }
-        public IFormFile CourseImage { get; set; }
+        public string CourseImageUrl { get; set; }
         [Required]
         public long CourseTypeId { get; set; }
         [Required]
         public long LevelTypeId { get; set; }
         [Required]
         public long CourseCategoryId { get; set; }
-
-        public IEnumerable<CourseTypes> CourseTypes { get; set; }
-
-        public IEnumerable<CourseLevel> CourseLevel { get; set; }
-
-        public IEnumerable<CourseCategory> CourseCategory { get; set; }
-
         public string AboutCourse { get; set; }
         [Required]
         public long CourseAmount { get; set; }

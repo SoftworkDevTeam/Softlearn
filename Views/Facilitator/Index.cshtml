@@ -1,4 +1,7 @@
-﻿@{ 
+﻿@using SoftLearnFrontEnd.Helpers
+@using Newtonsoft.Json
+
+@{ 
     Layout = "_TeacherIndexLayout";
 }
 
@@ -7,9 +10,9 @@
     <!--Header section-->
     <header style="position: relative" class="header-section">
         <nav class="navbar navbar-expand-sm navbar-light bg-white-ts">
-            <a class="navbar-brand" href="teachers-page.html">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
                 <div class="logo site-logo">
-                    <img class="img-fluid img-responsive" src="../dist/img/logo.png" alt="logo">
+                    <img class="img-fluid img-responsive" src="~/dist/img/logo.png" alt="logo">
                 </div>
             </a>
             @*<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
@@ -19,14 +22,14 @@
             </button>*@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="ml-50 nav-item dropdown">
+                    @*<li class="ml-50 nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Explore</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
                             <a class="dropdown-item" href="#">Action 1</a>
                             <a class="dropdown-item" href="#">Action 2</a>
                         </div>
-                    </li>
+                    </li>*@
                 </ul>
 
                 @*<form class="form-inline mr-auto mt-2 mt-lg-0">
@@ -37,7 +40,7 @@
                     </div>
                 </form>*@
                 <ul class="navbar-nav  my-2 my-lg-0">
-                    <li class="nav-item">
+                    @*<li class="nav-item">
                         <a class="nav-link" href="index.html">SoftLearn for Students</a>
                     </li>
                     <li class="nav-item">
@@ -46,16 +49,12 @@
                                 shopping_cart
                             </span>
                         </a>
-                    </li>
+                    </li>*@
                     <li class="login-btn nav-item">
                         <a class="nav-link" asp-controller="Facilitator" asp-action="Login">Login <span class="sr-only">(current)</span></a>
                     </li>
                     <li>
-                        <a class=" my-2 my-sm-0" asp-controller="Facilitator" asp-action="Create">
-                            <button class="btn header-btn-inverse"
-                                    type="submit">
-                                Sign up
-                            </button>
+                        <a class=" my-2 my-sm-0" asp-controller="Facilitator" asp-action="Create"><button class="btn header-btn-inverse" type="submit"> Sign up</button>
                         </a>
                     </li>
                 </ul>
@@ -74,7 +73,7 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 @*Slide One - Set the background image for this slide in the line below*@
-                <div class="carousel-item active" style="background-image: url('../dist/img/slides/learning-3245793_1920.jpg')">
+                <div class="carousel-item active" style="background-image: url('~/dist/img/slides/learning-3245793_1920.jpg')">
                     <div class="carousel-caption d-none d-md-block carousel-content">
                         <h2>Make a Global Impact</h2>
                         <p>

@@ -1,14 +1,39 @@
-﻿@{ 
-    Layout = "_TeacherLayout";
+﻿
+@{
+    Layout = "_DashboardLayout";
 }
 
 <div class="container">
+
     <div class="d-flex">
-        <h1 class="c-h1">Courses</h1>
-        <a class="btn btn-light ml-auto" asp-controller="Facilitator" asp-action="AddCourse" >New Course <i class="fas fa-plus"></i></a>
+            <h1 class="c-h1">Courses</h1>
+            <a class="btn btn-light ml-auto" asp-controller="Facilitator" asp-action="AddCourse">New Course <i class="fas fa-plus"></i></a>
     </div>
     <div class="row mt-5">
-        <div class="col-lg-4 col-md-6">
+        @foreach (var r in ViewBag.Courses)
+        {
+            if (@r.courseImageUrl == "")
+            {
+              r.courseImageUrl="../assets/img/courses/angularjs.jpg";
+            }
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <figure>
+                            <img class="card-img-top" src="@r.courseImageUrl" alt="Angular">
+                           
+                        </figure>
+                            <div class="card-body card-body-courses">
+                                <div class="d-flex">
+                                    <p>"@r.courseName"</p>
+                                    <p class="ml-auto"> <a asp-controller="Facilitator" asp-action="AddCourseTopic" asp-route-courseid="@r.id"><i class="fas fa-pencil-alt"></i> &nbsp;Course topic</a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+        }
+        @*<div class="col-lg-4 col-md-6">
             <div class="card">
                 <figure>
                     <img class="card-img-top" src="../assets/img/courses/angularjs.jpg" alt="Angular">
@@ -19,17 +44,17 @@
                 <div class="card-body card-body-courses">
                     <div class="d-flex">
                         <p>Angular JS</p>
-                        <p class="ml-auto"><i class="fas fa-pencil-alt"></i></span>
+                        <p class="ml-auto"><i class="fas fa-pencil-alt"></i></p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-3">
+        </div>*@
+        @*<div class="col-lg-4 col-md-6 mb-3">
             <div class="card">
                 <figure>
                     <img class="card-img-top" src="../assets/img/courses/photoshop.jpg" alt="Photoshop">
                     <figcaption class="project-description-overlay">
-                        <a href="#" role="button" class="text-white" data-toggle="modal" data-target="#courseDescriptionModal"><i class="fas fa-pencil-alt"></i> &nbsp;Edit</a>
+                        <a asp-action="EditCourse" asp-controller="Facilitator" role="button" class="text-white" data-toggle="modal" data-target="#courseDescriptionModal"><i class="fas fa-pencil-alt"></i> &nbsp;Edit</a>
                     </figcaption>
                 </figure>
                 <div class="card-body card-body-courses">
@@ -39,8 +64,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-3">
+        </div>*@
+        @*<div class="col-lg-4 col-md-6 mb-3">
             <div class="card">
                 <figure>
                     <img class="card-img-top" src="../assets/img/courses/reactjs.jpg" alt="React JS">
@@ -55,8 +80,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-3">
+        </div>*@
+        @*<div class="col-lg-4 col-md-6 mb-3">
             <div class="card">
                 <figure>
                     <img class="card-img-top" src="../assets/img/courses/webdesign.jpg" alt="Web Design">
@@ -71,8 +96,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-3">
+        </div>*@
+        @*<div class="col-lg-4 col-md-6 mb-3">
             <div class="card">
                 <figure>
                     <img class="card-img-top" src="../assets/img/courses/wordpress.jpg" alt="Wordpress">
@@ -87,8 +112,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-3">
+        </div>*@
+        @*<div class="col-lg-4 col-md-6 mb-3">
             <div class="card">
                 <figure>
                     <img class="card-img-top" src="../assets/img/courses/javascript.jpg" alt="JavaScript">
@@ -100,6 +125,49 @@
                     <div class="d-flex">
                         <p>JavaScript</p>
                         <p class="ml-auto"><i class="fas fa-pencil-alt"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="courseDescriptionModal" tabindex="-1" role="dialog" aria-labelledby="courseDescriptionModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <img class="" src="../dist2/img/courses/angularjs.jpg" />
+                        </div>
+                        <div class="col-lg-9 pt-4">
+                            <h2 class="c-h3">UI Design with Adobe XD</h2>
+                            <p>by Stephen Oloto</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Learn the fundamentals of Adobe XD and how to create basic prototypes.</p>
+                    </div>
+                    <div>
+                        <p class="mb-0 mt-0"><i class="fas fa-check"></i> &nbsp; Fundamentals of working with Angular</p>
+                        <p class="mb-0 mt-0"><i class="fas fa-check"></i> &nbsp; Create complete Angular Applications</p>
+                        <p class="mb-0 mt-0"><i class="fas fa-check"></i> &nbsp; Working with Angular CLI.</p>
+                        <p class="mb-0 mt-0"><i class="fas fa-check"></i> &nbsp; Understanding Dependency Injection</p>
+                        <p class="mb-0 mt-0"><i class="fas fa-check"></i> &nbsp; Testing with Angular</p>
+                    </div>
+                    <div class="row mt-3 mb-4">
+                        <div class="col-lg-6">
+                            <div>
+                                <p class="mb-0"><i class="fas fa-clock"></i> &nbsp; 6 Hours</p>
+                                <p class="mb-0"><i class="fas fa-play-circle"></i> &nbsp; 12 Lessons</p>
+                                <p class="mb-0"><i class="fas fa-chart-bar"></i> &nbsp; Beginner</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 pt-5">
+                            <button class="btn btn-sl-green float-right">Edit Course</button>
+                        </div>
                     </div>
                 </div>
             </div>

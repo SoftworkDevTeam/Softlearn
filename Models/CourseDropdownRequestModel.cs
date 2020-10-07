@@ -12,6 +12,6 @@ namespace SoftLearn.Models
 
         public IEnumerable<CourseLevel> CourseLevel { get; set; }
 
-        public IEnumerable<CourseCategory> CourseCategory { get; set; }
+       // public IEnumerable<CourseCategory> CourseCategory { get; set; }
     }
 }

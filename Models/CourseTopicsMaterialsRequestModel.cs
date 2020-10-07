@@ -15,7 +15,9 @@ namespace SoftLearnFrontEnd.RequestModels
         public long CourseId { get; set; }
         [Required]
         public long CourseTopicId { get; set; }
-        public IFormFile File { get; set; }
+        public string FileName { get; set; }
+        public string FileUrl { get; set; }
+        public string FileType { get; set; }
         
     }
 }

@@ -2,7 +2,7 @@
 @model SoftLearnFrontEnd.RequestModels.LearnerRegRequestModel
 
 @{
-    Layout = "_LearnerLayout";
+    Layout = "_SchoolLayout";
  }
 
 <div class="form-body">
@@ -39,8 +39,8 @@
                         <span asp-validation-for="LastName" class="text-danger"></span>
                         <input asp-for="LastName" type="text" class="form-control" placeholder="Last Name" />
 
-                        <span asp-validation-for="UserName" class="text-danger"></span>
-                        <input asp-for="UserName" type="text" class="form-control" placeholder="Username" />
+                        @*<span asp-validation-for="UserName" class="text-danger"></span>
+                        <input asp-for="UserName" type="text" class="form-control" placeholder="Username" />*@
 
                         <span asp-validation-for="Email" class="text-danger"></span>
                         <input asp-for="Email" type="email" class="form-control" placeholder="Email" />
@@ -55,7 +55,8 @@
                         <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="Phone Number" />
 
                         <span asp-validation-for="LevelTypeId" class="text-danger"></span>
-                        <input asp-for="LevelTypeId" type="number" class="form-control" placeholder="Level Type" />
+                        <select asp-for="LevelTypeId" asp-items="@(new SelectList(ViewBag.CourseLevelList,"id", "levelTypeName" ))" class="form-control">
+                        </select>
 
                         <div class="form-button">
                             <button id="submit" type="submit" class="ibtn">Register</button> <a href="forget15.html">Forgot password?</a>

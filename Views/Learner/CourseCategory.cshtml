@@ -1,0 +1,60 @@
+﻿@using SoftLearnFrontEnd.Helpers
+@using Newtonsoft.Json
+@using NewSoftlearn.Entities
+
+@{
+    HttpClientConfig httpClientConfig = new HttpClientConfig();
+}
+
+@{
+        Layout = "_LearnDashboardLayout";
+    }
+
+<div class="container">
+    <div class="d-flex">
+        <h1 class="c-h1">Courses Categories</h1>
+        @*<a class="btn btn-light ml-auto" asp-controller="Facilitator" asp-action="AddCourse">New Course <i class="fas fa-plus"></i></a>*@
+    </div>
+    <div class="row mt-5">
+        @if (ViewBag.CourseCategoryList != null)
+        {
+            @foreach (var r in ViewBag.CourseCategoryList)
+            {
+                //Api call for course category by Id
+                var apiResponse = await httpClientConfig.GetRestResponse("Course/coursesByCategoryId?categoryId=" + r.id + "", "");
+                var result = JsonConvert.DeserializeObject<CourseDataResponse>(apiResponse);
+
+                long countCourses = 0;
+
+                if (result.Data != null)
+                {
+                    foreach (var rr in result.Data)
+                    {
+                        countCourses = countCourses + 1;
+                    }
+                }
+
+                if (@r.categoryImageUrl == null)
+                {
+                    r.categoryImageUrl = "../dist2/img/categories/6.jpg";
+                }
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <figure>
+                            <img class="card-img-top" src="@r.categoryImageUrl" alt="Image">
+                        </figure>
+                        <div class="card-body card-body-courses">
+                            <div class="ci-text">
+                                <p> <a asp-route-categoryId="@r.id" asp-controller="Learner" asp-action="CoursesByCategory"><h5>@r.courseCategoryName</h5></a></p>
+                                 <span>@countCourses Courses</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+
+        </div>
+</div>

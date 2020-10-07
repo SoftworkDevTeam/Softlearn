@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NewSoftlearn.InterfaceRepositories;
+using NewSoftlearn.Repositories;
+using NewSoftlearn.Services.Cloudinary;
 
 namespace NewSoftlearn
 {
@@ -34,6 +37,15 @@ namespace NewSoftlearn
                 options.IdleTimeout = TimeSpan.FromMinutes(30);//You can set Time   
             });
 
+
+            //------------------CLOUDINARY SERVICE--------------------------------------------------
+
+            var cloudinaryConfig = Configuration.GetSection("Cloudinary").Get<CloudinaryConfig>();
+            services.AddSingleton(cloudinaryConfig);
+
+            services.AddTransient<ICloudinaryRepo, CloudinaryRepo>();
+
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
         }
